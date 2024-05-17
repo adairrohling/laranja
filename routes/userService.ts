@@ -12,14 +12,14 @@ const Ccc = z.object({
 const BbbSchema = z.object({
   id: z.number().optional(),
   ttt: z.string().min(1),
-  ccc: Ccc
+  ccc: Ccc.optional()
 });
 
 // extract the inferred type like this
 type Bbb = z.infer<typeof BbbSchema>;
 
 const AaaSchema = z.object({
-  rrr: z.string(),
+  rrr: z.string().min(1),
   bbb: BbbSchema,
 });
 
