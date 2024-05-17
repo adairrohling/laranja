@@ -73,7 +73,7 @@ export async function allAuthors(req: Request, res: Response) {
   const client = await pool.connect();
   try {
     const authors = await client.query(`SELECT b.id, b.ttt, 
-    json_build_object('id', c.id, 'sss', c.sss, 'xxx', c.xxx) as ccc FROM cccs b
+    json_build_object('id', c.id, 'sss', c.sss, 'xxx', c.xxx) as ccc FROM cccs c
     INNER JOIN bbbs b ON c.bbb_id = b.id`);
     res.send(authors.rows);
   } catch (error) {
@@ -88,7 +88,7 @@ export async function allMonographs(req: Request, res: Response) {
   const client = await pool.connect();
   try {
     const monographs = await client.query(`SELECT a.id, a.rrr, 
-    json_build_object('id', b.id, 'ttt', b.ttt) as bbb FROM bbbs a
+    json_build_object('id', b.id, 'ttt', b.ttt) as bbb FROM bbbs b
     INNER JOIN aaas a ON a.bbb_id = b.id`);
     res.send(monographs.rows);
   } catch (error) {
