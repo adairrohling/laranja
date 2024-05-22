@@ -5,7 +5,8 @@ import { Request, Response, Router } from "express";
 import { z } from "zod";
 
 const Ccc = z.object({
-  sss: z.number(),
+  id: z.number().optional(),
+  sss: z.string().min(1),
   xxx: z.string().min(1)
 });
 
