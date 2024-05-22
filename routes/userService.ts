@@ -7,7 +7,7 @@ import { z } from "zod";
 const Ccc = z.object({
   id: z.number().optional(),
   sss: z.string().min(1),
-  xxx: z.string().min(1)
+  xxx: z.number().optional()
 });
 
 const BbbSchema = z.object({
